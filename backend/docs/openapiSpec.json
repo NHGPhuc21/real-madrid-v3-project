@@ -1,0 +1,1209 @@
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Football Club Management API",
+    "version": "1.0.0",
+    "description": "API for managing a football club website, including news, matches, tickets, products, orders and video highlights."
+  },
+  "servers": [
+    { "url": "http://localhost:3000", "description": "Local development server" },
+    { "url": "https://api.footballclub.com", "description": "Production server" }
+  ],
+  
+  "paths": {
+    "/api/news": {
+      "get": {
+        "summary": "Get all news",
+        "tags": ["News"],
+        "responses": {
+          "200": {
+            "description": "List of news",
+            "content": {
+              "application/json": {
+                "example": [
+                  { "id": 1, "title": "Real Madrid thắng 3-1 trước Barcelona", "content": "Trận đấu Siêu kinh điển kết thúc với chiến thắng thuyết phục.", "published_at": "2025-09-10T10:00:00Z" },
+                  { "id": 2, "title": "Tân binh ký hợp đồng", "content": "Real Madrid chính thức ký hợp đồng với cầu thủ trẻ triển vọng.", "published_at": "2025-09-09T14:00:00Z" }
+                ]
+              }
+            }
+          },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "summary": "Create news",
+        "tags": ["News"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["title"],
+                "properties": {
+                  "title": { "type": "string" },
+                  "content": { "type": "string" },
+                  "authorid": { "type": "integer", "nullable": true },
+                  "imageurl": { "type": "string", "nullable": true },
+                  "ispublished": { "type": "boolean" }
+                }
+              },
+              "example": { "title": "Real Madrid ký hợp đồng tân binh", "content": "CLB đã chính thức công bố bản hợp đồng mới.", "authorid": null, "imageurl": "transfer", "ispublished": true }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "News created" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/news/{id}": {
+      "get": {
+        "summary": "Get news by ID",
+        "tags": ["News"],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "News details" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "summary": "Update news",
+        "tags": ["News"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "content": { "type": "string" },
+                  "imageurl": { "type": "string", "nullable": true },
+                  "ispublished": { "type": "boolean" }
+                }
+              },
+              "example": { "title": "Updated title", "content": "Updated content", "imageurl": "transfer", "ispublished": true }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "News updated" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "summary": "Delete news",
+        "tags": ["News"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "News deleted" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/matches": {
+      "get": {
+        "summary": "Get all matches",
+        "tags": ["Matches"],
+        "parameters": [
+          { "name": "upcoming", "in": "query", "required": false, "schema": { "type": "string", "enum": ["0", "1"] } }
+        ],
+        "responses": {
+          "200": { "description": "List of matches" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "summary": "Create match",
+        "tags": ["Matches"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["opponentteam"],
+                "properties": {
+                  "opponentteam": { "type": "string" },
+                  "opponentteamlogourl": { "type": "string", "nullable": true },
+                  "matchdatetime": { "type": "string", "format": "date-time", "nullable": true },
+                  "stadium": { "type": "string", "nullable": true },
+                  "competition": { "type": "string", "nullable": true },
+                  "ishomematch": { "type": "boolean" },
+                  "description": { "type": "string", "nullable": true }
+                }
+              },
+              "example": { "opponentteam": "Sevilla", "matchdatetime": "2025-10-05T18:00:00Z", "stadium": "Santiago Bernabéu", "competition": "La Liga", "ishomematch": true, "description": "Round 8" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Match created" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/matches/{id}": {
+      "get": {
+        "summary": "Get match by ID",
+        "tags": ["Matches"],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Match details" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "summary": "Update match",
+        "tags": ["Matches"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "opponentteam": { "type": "string" },
+                  "opponentteamlogourl": { "type": "string", "nullable": true },
+                  "matchdatetime": { "type": "string", "format": "date-time", "nullable": true },
+                  "stadium": { "type": "string", "nullable": true },
+                  "competition": { "type": "string", "nullable": true },
+                  "ishomematch": { "type": "boolean" },
+                  "homescore": { "type": "integer", "minimum": 0 },
+                  "awayscore": { "type": "integer", "minimum": 0 },
+
+                  "description": { "type": "string", "nullable": true }
+                }
+              },
+              "example": { "stadium": "Bernabéu (new)", "ishomematch": true }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Match updated" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "summary": "Delete match",
+        "tags": ["Matches"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Match deleted" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+        "/api/matches/current": {
+      "get": {
+        "summary": "Get current/next match for scoreboard",
+        "tags": ["Matches"],
+        "responses": {
+          "200": {
+            "description": "The current (live/next) match or null",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "match": { "$ref": "#/components/schemas/MatchResponse" }
+                  },
+                  "nullable": true
+                },
+                "example": {
+                  "match": {
+                    "matchid": 15,
+                    "competition": "La Liga",
+                    "stadium": "Santiago Bernabéu",
+                    "matchdatetime": "2025-10-18T19:00:00Z",
+                    "ishomematch": true,
+                    "opponentteam": "Atlético de Madrid",
+                    "opponentteamlogourl": "/assets/logo/atm.png",
+                    "homescore": 2,
+                    "awayscore": 1
+                  }
+                }
+              }
+            }
+          },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+        "/api/matches/{id}/score": {
+      "patch": {
+        "summary": "Update match score (admin)",
+        "tags": ["Matches"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MatchScoreUpdate" },
+              "example": { "homescore": 3, "awayscore": 2 }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Score updated" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+    "/api/tickets": {
+      "get": {
+        "summary": "Get all tickets",
+        "tags": ["Tickets"],
+        "responses": {
+          "200": { "description": "List of tickets" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "summary": "Create ticket",
+        "tags": ["Tickets"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["matchid", "categoryid", "totalquantity"],
+                "properties": {
+                  "matchid": { "type": "integer" },
+                  "categoryid": { "type": "integer" },
+                  "totalquantity": { "type": "integer" },
+                  "availablequantity": { "type": "integer" },
+                  "salestartdate": { "type": "string", "format": "date-time", "nullable": true },
+                  "saleenddate": { "type": "string", "format": "date-time", "nullable": true }
+                }
+              },
+              "example": { "matchid": 2, "categoryid": 1, "totalquantity": 1000, "availablequantity": 1000, "salestartdate": "2025-10-01T00:00:00Z", "saleenddate": "2025-10-05T12:00:00Z" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Ticket created" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/tickets/{id}": {
+      "get": {
+        "summary": "Get ticket by ID",
+        "tags": ["Tickets"],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Ticket details" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "summary": "Update ticket",
+        "tags": ["Tickets"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "matchid": { "type": "integer" },
+                  "categoryid": { "type": "integer" },
+                  "totalquantity": { "type": "integer" },
+                  "availablequantity": { "type": "integer" },
+                  "salestartdate": { "type": "string", "format": "date-time", "nullable": true },
+                  "saleenddate": { "type": "string", "format": "date-time", "nullable": true }
+                }
+              },
+              "example": { "availablequantity": 900, "saleenddate": "2025-10-05T10:00:00Z" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Ticket updated" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "summary": "Delete ticket",
+        "tags": ["Tickets"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Ticket deleted" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/products": {
+      "get": {
+        "summary": "Get all products",
+        "tags": ["Products"],
+        "responses": {
+          "200": { "description": "List of products" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "summary": "Create product",
+        "tags": ["Products"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "price"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "price": { "type": "number" },
+                  "stock": { "type": "integer" },
+                  "imageurl": { "type": "string", "nullable": true },
+                  "categoryid": { "type": "integer", "nullable": true }
+                }
+              },
+              "example": { "name": "Mũ Real Madrid", "description": "Mũ bóng chày Real Madrid", "price": 30, "stock": 150, "imageurl": "cap_rm", "categoryid": 1 }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Product created" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/products/{id}": {
+      "get": {
+        "summary": "Get product by ID",
+        "tags": ["Products"],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Product details" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "summary": "Update product",
+        "tags": ["Products"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "price": { "type": "number" },
+                  "stock": { "type": "integer" },
+                  "imageurl": { "type": "string", "nullable": true },
+                  "categoryid": { "type": "integer", "nullable": true }
+                }
+              },
+              "example": { "name": "Áo đấu Real Madrid 2025", "description": "Áo sân nhà", "price": 95, "stock": 120, "imageurl": "home_jersey_2025", "categoryid": 2 }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Product updated" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "summary": "Delete product",
+        "tags": ["Products"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Product deleted" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/orders": {
+      "post": {
+        "summary": "Create ticket order",
+        "tags": ["Orders"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TicketOrderCreate" },
+              "example": { "userId": 1, "items": [{ "ticketId": 1, "quantity": 2, "unitPrice": 50.0 }] }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Order created", "content": { "application/json": { "example": { "orderId": 10 } } } },
+          "400": { "description": "Bad request" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "get": {
+        "summary": "List all orders (admin)",
+        "tags": ["Orders"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        }
+      }
+    },
+    "/api/orders/my": {
+      "get": {
+        "summary": "List my orders",
+        "tags": ["Orders"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "Register user",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["username", "email", "password"],
+                "properties": {
+                  "username": { "type": "string" },
+                  "email": { "type": "string", "format": "email" },
+                  "password": { "type": "string", "format": "password" }
+                }
+              },
+              "example": { "username": "user123", "email": "user123@example.com", "password": "secret123" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "User registered" },
+          "400": { "description": "Invalid input" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Login user",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": { "type": "string", "format": "email" },
+                  "password": { "type": "string", "format": "password" }
+                }
+              },
+              "example": { "email": "user123@example.com", "password": "secret123" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login successful" },
+          "401": { "description": "Invalid credentials" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "summary": "Logout user",
+        "tags": ["Auth"],
+        "responses": {
+          "200": { "description": "User logged out" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/admin/register": {
+      "post": {
+        "summary": "Register admin",
+        "tags": ["Admin"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["username", "email", "password"],
+                "properties": {
+                  "username": { "type": "string" },
+                  "email": { "type": "string", "format": "email" },
+                  "password": { "type": "string", "format": "password" }
+                }
+              },
+              "example": { "username": "admin01", "email": "admin01@example.com", "password": "adminpassword" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Admin registered" },
+          "400": { "description": "Invalid input" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/admin/login": {
+      "post": {
+        "summary": "Login admin",
+        "tags": ["Admin"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": { "type": "string", "format": "email" },
+                  "password": { "type": "string", "format": "password" }
+                }
+              },
+              "example": { "email": "admin01@example.com", "password": "adminpassword" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login successful" },
+          "401": { "description": "Invalid credentials" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/api/admin/logout": {
+      "post": {
+        "summary": "Logout admin",
+        "tags": ["Admin"],
+        "responses": {
+          "200": { "description": "Admin logged out" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+  
+
+    "/api/highlights": {
+      "get": {
+        "summary": "List highlight videos",
+        "description": "Public: thường dùng status=published. Admin có thể xem tất cả.",
+        "tags": ["Highlights"],
+        "parameters": [
+          { "name": "status", "in": "query", "schema": { "type": "string", "enum": ["draft","published","archived"] }, "required": false },
+          { "name": "q", "in": "query", "schema": { "type": "string" }, "required": false },
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1, "minimum": 1 }, "required": false },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 12, "minimum": 1, "maximum": 60 }, "required": false }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of videos",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/HighlightListResponse" } } }
+          },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+    "/api/highlights/{id}": {
+      "get": {
+        "summary": "Get highlight detail",
+        "tags": ["Highlights"],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/HighlightVideo" } } } },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "patch": {
+        "summary": "Update highlight metadata/status (admin)",
+        "tags": ["Highlights"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/HighlightVideoUpdate" },
+              "example": { "title": "RM vs ATL (10’ highlights)", "status": "published" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Updated" },
+          "400": { "description": "Invalid input" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+    "/api/highlights/upload": {
+      "post": {
+        "summary": "Upload highlight MP4 + thumbnail (admin)",
+        "tags": ["Highlights"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["title", "video"],
+                "properties": {
+                  "matchId": { "type": "integer", "nullable": true },
+                  "title": { "type": "string" },
+                  "description": { "type": "string", "nullable": true },
+                  "status": { "type": "string", "enum": ["draft","published","archived"], "default": "draft" },
+                  "video": { "type": "string", "format": "binary", "description": "MP4 file" },
+                  "thumb": { "type": "string", "format": "binary", "description": "Poster image (jpg/png)" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Uploaded. Transcoding started.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "videoId": 12,
+                  "message": "Uploaded. Transcoding started.",
+                  "sourceMP4": "/uploads/videos/sources/1712345678_clip.mp4",
+                  "thumbURL": "/uploads/videos/posters/1712345678_clip.jpg",
+                  "hlsPath": "/uploads/hls/hls_12_1712345678999"
+                }
+              }
+            }
+          },
+          "400": { "description": "Invalid input / Missing file" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+     "/api/admin/orders/{id}/refund": {
+      "post": {
+        "summary": "Refund an order (wallet)",
+        "tags": ["Admin"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["amount"],
+                "properties": {
+                  "amount": { "type": "number" },
+                  "reason": { "type": "string" }
+                }
+              },
+              "example": { "amount": 120000, "reason": "Customer cancellation" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Refund succeeded" },
+          "400": { "description": "Bad request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Order not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+    "/api/admin/reconcile/run": {
+      "post": {
+        "summary": "Run reconciliation once (expire sessions & release freezes)",
+        "tags": ["Admin"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+
+
+
+    "/api/wallet/create": {
+  "post": {
+    "summary": "Create wallet for current user",
+    "tags": ["Wallet"],
+    "security": [{ "bearerAuth": [] }],
+    "responses": {
+      "201": {
+        "description": "Wallet created",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/WalletCreateResponse" },
+            "example": { "walletId": 3, "available": 0, "frozen": 0, "bonus": 0, "bonus_frozen": 0 }
+          }
+        }
+      },
+      "200": {
+        "description": "Wallet already exists (idempotent)",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/WalletCreateResponse" }
+          }
+        }
+      },
+      "401": { "description": "Unauthorized" },
+      "500": { "description": "Internal Server Error" }
+    }
+  }
+},
+
+"/api/wallet/set-pin": {
+  "post": {
+    "summary": "Set/Update wallet PIN",
+    "tags": ["Wallet"],
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": ["pin"],
+            "properties": { "pin": { "type": "string", "minLength": 4, "maxLength": 12 } }
+          },
+          "example": { "pin": "1234" }
+        }
+      }
+    },
+    "responses": {
+      "200": { "description": "PIN set OK", "content": { "application/json": { "example": { "ok": true } } } },
+      "400": { "description": "Invalid PIN" },
+      "401": { "description": "Unauthorized" },
+      "500": { "description": "Internal Server Error" }
+    }
+  }
+},
+
+"/api/wallet/topup": {
+  "post": {
+    "summary": "Initiate a wallet topup (mock provider)",
+    "tags": ["Wallet"],
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": { "$ref": "#/components/schemas/WalletTopupRequest" },
+          "example": { "amount": 100000, "provider": "mock" }
+        }
+      }
+    },
+    "responses": {
+      "201": {
+        "description": "Topup created",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/WalletTopupResponse" },
+            "example": { "topupId": 12, "provider": "mock", "status": "initiated", "amount": 100000 }
+          }
+        }
+      },
+      "400": { "description": "Bad request" },
+      "401": { "description": "Unauthorized" },
+      "500": { "description": "Internal Server Error" }
+    }
+  }
+},
+
+"/api/payments/webhook": {
+  "post": {
+    "summary": "Mock provider webhook (topup.succeeded)",
+    "description": "Accepts provider callbacks. Uses 'x-webhook-secret' header.",
+    "tags": ["Payments"],
+    "parameters": [
+      {
+        "name": "x-webhook-secret",
+        "in": "header",
+        "required": true,
+        "schema": { "type": "string" },
+        "example": "dev_secret"
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": { "$ref": "#/components/schemas/PaymentsWebhookPayload" },
+          "example": {
+            "type": "topup.succeeded",
+            "data": {
+              "topupId": 12,
+              "provider": "mock",
+              "providerTxnId": "txn_1",
+              "amount": 100000
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": { "description": "ok" },
+      "401": { "description": "unauthorized (wrong secret)" },
+      "400": { "description": "bad request" }
+    }
+  }
+},
+
+"/api/wallet/balance": {
+  "get": {
+    "summary": "Get current wallet balance",
+    "tags": ["Wallet"],
+    "security": [{ "bearerAuth": [] }],
+    "responses": {
+      "200": {
+        "description": "Current balance",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/WalletBalance" },
+            "example": { "available": 100000, "frozen": 0, "bonus": 0, "bonus_frozen": 0 }
+          }
+        }
+      },
+      "401": { "description": "Unauthorized" }
+    }
+  }
+},
+
+"/api/wallet/ledger": {
+  "get": {
+    "summary": "List wallet ledger entries (latest first)",
+    "tags": ["Wallet"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 50, "minimum": 1, "maximum": 200 } }
+    ],
+    "responses": {
+      "200": {
+        "description": "Ledger entries",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/components/schemas/LedgerEntry" }
+            },
+            "example": [
+              { "id": 101, "entry": "credit", "amount": 100000, "ref_type": "topup", "ref_id": "12", "balance_after": 100000, "created_at": "2025-10-15T10:00:00Z" }
+            ]
+          }
+        }
+      },
+      "401": { "description": "Unauthorized" }
+    }
+  }
+}
+
+  },
+  
+  "components": {
+    "schemas": {
+      "WalletCreateResponse": {
+  "type": "object",
+  "properties": {
+    "walletId": { "type": "integer" },
+    "available": { "type": "number", "format": "float" },
+    "frozen": { "type": "number", "format": "float" },
+    "bonus": { "type": "number", "format": "float" },
+    "bonus_frozen": { "type": "number", "format": "float" }
+  }
+},
+
+"WalletTopupRequest": {
+  "type": "object",
+  "required": ["amount", "provider"],
+  "properties": {
+    "amount": { "type": "number", "minimum": 1000 },
+    "provider": { "type": "string", "enum": ["mock", "vnpay", "momo", "stripe"], "default": "mock" },
+    "idempotencyKey": { "type": "string", "nullable": true }
+  }
+},
+
+"WalletTopupResponse": {
+  "type": "object",
+  "properties": {
+    "topupId": { "type": "integer" },
+    "provider": { "type": "string" },
+    "status": { "type": "string", "enum": ["initiated", "success", "failed"] },
+    "amount": { "type": "number" },
+    "currency": { "type": "string", "default": "VND" }
+  }
+},
+
+"PaymentsWebhookPayload": {
+  "type": "object",
+  "required": ["type", "data"],
+  "properties": {
+    "type": { "type": "string", "example": "topup.succeeded" },
+    "data": {
+      "type": "object",
+      "properties": {
+        "topupId": { "type": "integer" },
+        "provider": { "type": "string" },
+        "providerTxnId": { "type": "string" },
+        "amount": { "type": "number" }
+      }
+    }
+  }
+},
+
+"WalletBalance": {
+  "type": "object",
+  "properties": {
+    "available": { "type": "number" },
+    "frozen": { "type": "number" },
+    "bonus": { "type": "number" },
+    "bonus_frozen": { "type": "number" }
+  }
+},
+
+"LedgerEntry": {
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "entry": { "type": "string", "enum": ["debit", "credit"] },
+    "amount": { "type": "number" },
+    "currency": { "type": "string", "default": "VND" },
+    "ref_type": { "type": "string" },
+    "ref_id": { "type": "string" },
+    "balance_after": { "type": "number" },
+    "meta": { "type": "object", "nullable": true },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+},
+
+      "News": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "content": { "type": "string" },
+          "published_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Match": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "opponent": { "type": "string" },
+          "date": { "type": "string", "format": "date-time" },
+          "venue": { "type": "string" },
+          "score": { "type": "string" }
+        }
+      },
+              "MatchResponse": {
+        "type": "object",
+        "nullable": true,
+        "properties": {
+          "matchid": { "type": "integer" },
+          "competition": { "type": "string", "nullable": true },
+          "stadium": { "type": "string", "nullable": true },
+          "matchdatetime": { "type": "string", "format": "date-time", "nullable": true },
+          "ishomematch": { "type": "boolean" },
+          "opponentteam": { "type": "string" },
+          "opponentteamlogourl": { "type": "string", "nullable": true },
+          "homescore": { "type": "integer", "minimum": 0 },
+          "awayscore": { "type": "integer", "minimum": 0 },
+          "description": { "type": "string", "nullable": true }
+        }
+      },
+
+      "MatchScoreUpdate": {
+        "type": "object",
+        "required": ["homescore", "awayscore"],
+        "properties": {
+          "homescore": { "type": "integer", "minimum": 0 },
+          "awayscore": { "type": "integer", "minimum": 0 }
+        }
+      },
+
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "match_id": { "type": "integer" },
+          "seat_number": { "type": "string" },
+          "price": { "type": "number" },
+          "status": { "type": "string", "enum": ["available", "sold"] }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "price": { "type": "number" },
+          "stock": { "type": "integer" }
+        }
+      },
+      "TicketOrderItem": {
+        "type": "object",
+        "required": ["ticketId", "quantity", "unitPrice"],
+        "properties": {
+          "ticketId": { "type": "integer" },
+          "quantity": { "type": "integer", "minimum": 1 },
+          "unitPrice": { "type": "number", "format": "float", "minimum": 0 }
+        }
+      },
+      "TicketOrderCreate": {
+        "type": "object",
+        "required": ["userId", "items"],
+        "properties": {
+          "userId": { "type": "integer" },
+          "items": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/TicketOrderItem" },
+            "minItems": 1
+          }
+        }
+      },
+
+     
+
+      "HighlightVideo": {
+        "type": "object",
+        "properties": {
+          "videoid": { "type": "integer" },
+          "matchid": { "type": "integer", "nullable": true },
+          "title": { "type": "string" },
+          "description": { "type": "string", "nullable": true },
+          "status": { "type": "string", "enum": ["draft","published","archived"] },
+          "thumburl": { "type": "string", "nullable": true },
+          "sourcemp4": { "type": "string", "nullable": true },
+          "hlspath": { "type": "string", "nullable": true },
+          "durationsec": { "type": "integer", "nullable": true },
+          "views": { "type": "integer" },
+          "createdat": { "type": "string", "format": "date-time" },
+          "updatedat": { "type": "string", "format": "date-time" },
+          "publishedat": { "type": "string", "format": "date-time", "nullable": true }
+        }
+      },
+      "HighlightVideoUpdate": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string", "nullable": true },
+          "status": { "type": "string", "enum": ["draft","published","archived"] }
+        }
+      },
+      "HighlightListResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/HighlightVideo" }
+          },
+          "total": { "type": "integer" },
+          "page": { "type": "integer" },
+          "limit": { "type": "integer" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" }
+    }
+  },
+  "tags": [
+    { "name": "Wallet", "description": "User wallet operations (create, set PIN, topup, balance, ledger)" },
+    { "name": "Payments", "description": "Payment provider callbacks (webhooks)" },
+
+    { "name": "News", "description": "Operations related to club news" },
+    { "name": "Matches", "description": "Operations related to matches" },
+    { "name": "Tickets", "description": "Operations related to match tickets" },
+    { "name": "Products", "description": "Operations related to club products" },
+    { "name": "Orders", "description": "Ticket order operations" },
+    { "name": "Auth", "description": "User authentication" },
+    { "name": "Admin", "description": "Admin authentication and management" },
+    { "name": "Highlights", "description": "Upload & manage match highlight videos" }
+  ]
+  
+}

@@ -1,0 +1,91 @@
+{
+  "football": [
+    {
+      "name": "The best club of the 20th century",
+      "count": 1,
+      "years": ["Ngày 11 tháng 12 năm 2000."],
+      "image": "/src/assets/cup/clbxs.jpg"
+    },
+    {
+      "name": "UEFA Champion League",
+      "count": 15,
+      "years": ["1955-56", "1956-57", "1957-58", "1958-59", "1959-60", "1965-66", "1997-98", "1999-00", "2001-02", "2013-14", "2015-16", "2016-17", "2017-18", "2021-22", "2023-24"],
+      "image": "/src/assets/cup/c1.webp"
+
+      
+    },
+    {
+      "name": "FIFA Club World Cup",
+      "count": 9,
+      "years": ["1960", "1998", "2002", "2014", "2016", "2017", "2018", "2023", "2024"],
+      "image": "/src/assets/cup/cwc.jpeg"
+    },
+    {
+      "name": "UEFA Super Cup",
+      "count": 6,
+      "years": ["2002", "2014", "2016", "2017", "2022", "2024"],
+      "image": "/src/assets/cup/supercup.webp"
+    },
+    {
+      "name": "UEFA Cup",
+      "count": 2,
+      "years": ["1984-85", "1985-86"],
+      "image": "/src/assets/cup/uefacup.webp"
+    },
+    {
+      "name": "La Liga",
+      "count": 36,
+      "years": ["1931-32", "1932-33", "1953-54", "1954-55", "1956-57", "1957-58", "1960-61", "1961-62", "1962-63", "1963-64", "1964-65", "1966-67", "1967-68", "1968-69", "1971-72", "1974-75", "1975-76", "1977-78", "1978-79", "1979-80", "1985-86", "1986-87", "1987-88", "1988-89", "1989-90", "1994-95", "1996-97", "2000-01", "2002-03", "2006-07", "2007-08", "2011-12", "2016-17", "2019-20", "2021-22", "2023-24"],
+      "image": "/src/assets/cup/liga.webp"
+    },
+    
+    {
+      "name": "Spanish Super Cup",
+      "count": 13,
+      "years": ["1988", "1989", "1990", "1993", "1997", "2001", "2003", "2008", "2012", "2017", "2020", "2022", "2024"],
+      "image": "/src/assets/cup/sctbn.webp"
+    },
+    {
+      "name": "Copa Del Rey",
+      "count": 18,
+      "years": ["1905", "1906", "1907", "1908" ,"1917", "1933-34" ,"1935-36", "1945-46" ,"1946-47" ,"1961-62" ,"1969-70", "1973-74" ,"1974-75" ,"1979-80" ,"1981-82" ,"1988-89"," 1992-93" ,"2010-11" ,"2013-14" ,"2022-23"],
+      "image": "/src/assets/cup/copadey.webp"
+    },
+    {
+      "name": "Federation Cup",
+      "count": 1,
+      "years": ["1984-85"],
+      "image": "/src/assets/cup/cupliendoan.webp"
+    },
+    {
+      "name": "Mini World Championship",
+      "count": 2,
+      "years": ["1952 1956"],
+      "image": "/src/assets/cup/miniworld.webp"
+    },
+     {
+      "name": "Latin Cup",
+      "count": 2,
+      "years": ["1955 1957"],
+      "image": "/src/assets/cup/latincup.webp"
+    },
+     {
+      "name": "Ibero-American Cup",
+      "count": 2,
+      "years": ["1955 1957"],
+      "image": "/src/assets/cup/ibero.webp"
+    },
+    {
+      "name": "Regional Championship",
+      "count": 18,
+      "years": ["1903-04" ,"1904-05" ,"1905-06" ,"1906-07" ,"1907-08" ,"1912-13" ,"1915-16" ,"1916-17" ,"1917-18" ,"1919-20" ,"1921-22" ,"1922-23" ,"1923-24" ,"1925-26" ,"1926-27" ,"1928-29" ,"1929-30" ,"1930-31"],
+      "image": "/src/assets/cup/ibero.webp"
+    },
+    {
+      "name": "common cup",
+      "count": 5,
+      "years": ["1931-32" ,"1932-33" ,"1933-34" ,"1934-35" ,"1935-36"],
+      "image": "/src/assets/cup/ibero.webp"
+    }
+  ]
+}

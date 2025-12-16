@@ -1,0 +1,355 @@
+html[data-bs-theme="dark"] body {
+    background: #000000 !important;
+    color: #eaeaea !important;
+}
+
+
+html[data-bs-theme="dark"] section,
+html[data-bs-theme="dark"] .section {
+    background: #121212 !important;
+    color: #eaeaea !important;
+}
+
+html[data-bs-theme="dark"] .bg-light {
+    background-color: #1d1d1d !important;
+}
+
+
+html[data-bs-theme="dark"] .navbar {
+    background: #1c1c1c !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+html[data-bs-theme="dark"] .nav-link {
+    color: #eaeaea !important;
+}
+
+html[data-bs-theme="dark"] .nav-link:hover,
+html[data-bs-theme="dark"] .nav-link.active {
+    color: #8ab4ff !important;
+}
+
+
+html[data-bs-theme="dark"] .sponsor-logo {
+    filter: brightness(0) invert(1) !important;
+}
+
+
+html[data-bs-theme="dark"] .divider {
+    background: rgba(255, 255, 255, 0.25) !important;
+}
+
+
+html[data-bs-theme="dark"] .cup-logo {
+    filter: brightness(1.7) !important;
+}
+
+
+html[data-bs-theme="dark"] .section-title {
+    color: #f5f5f5 !important;
+}
+
+
+html[data-bs-theme="dark"] .card {
+    background: #1e1e1e !important;
+    color: #eaeaea !important;
+    border-color: #333 !important;
+}
+
+/* Text muted */
+html[data-bs-theme="dark"] .text-muted {
+    color: #bcbcbc !important;
+}
+
+/* BADGE */
+html[data-bs-theme="dark"] .badge.bg-secondary {
+    background-color: #444 !important;
+    color: #fff !important;
+}
+
+/* ===============================
+   NEWS CARDS
+================================= */
+html[data-bs-theme="dark"] .news-thumb {
+    background: #2a2a2a !important;
+}
+
+/* ===============================
+   FEATURED NEWS (Home — big news)
+================================= */
+html[data-bs-theme="dark"] .featured-row {
+    background: #1c1c1c !important;
+}
+
+html[data-bs-theme="dark"] .featured-body {
+    background: #161616 !important;
+}
+
+html[data-bs-theme="dark"] .featured-body .card-body * {
+    color: #eaeaea !important;
+}
+
+/* ===============================
+   PLAYERS CARD
+================================= */
+html[data-bs-theme="dark"] .player-card {
+    background: #1f1f1f !important;
+    border-color: #333 !important;
+}
+
+html[data-bs-theme="dark"] .player-meta-label {
+    color: #bcbcbc !important;
+}
+
+/* Avatar viền sáng hơn */
+html[data-bs-theme="dark"] .player-avatar-wrapper {
+    border-color: #666 !important;
+}
+
+/* ===============================
+   MATCH CARDS (Upcoming, Next match…)
+================================= */
+html[data-bs-theme="dark"] .fixture-card {
+    background: #1f1f1f !important;
+}
+
+html[data-bs-theme="dark"] .fixture-card .card-body {
+    color: #ddd !important;
+}
+
+/* Fixture header (blue) giữ nguyên vì đẹp trong dark */
+html[data-bs-theme="dark"] .fixture-head {
+    color: #fff !important;
+}
+
+/* Next matches block */
+html[data-bs-theme="dark"] .next-matches-row {
+    background: #191919 !important;
+}
+
+html[data-bs-theme="dark"] .nm-card-inner {
+    background: #232323 !important;
+}
+
+html[data-bs-theme="dark"] .nm-team-name,
+html[data-bs-theme="dark"] .nm-date {
+    color: #ddd !important;
+}
+
+/* ===============================
+   CAROUSEL BUTTONS
+================================= */
+html[data-bs-theme="dark"] .carousel-btn {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ===============================
+   BUTTONS (custom gradient)
+================================= */
+html[data-bs-theme="dark"] .gradient-btn,
+html[data-bs-theme="dark"] .news-read-btn {
+    color: #fff !important;
+}
+
+.dropdown-menu.show {
+    display: block !important;
+}
+
+/* ===============================
+   DROPDOWNS
+================================= */
+html[data-bs-theme="dark"] .dropdown-menu {
+    background: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item {
+    color: #eaeaea !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item:hover {
+    background: #2a2a2a !important;
+}
+
+/* ===============================
+   INPUT / FORM
+================================= */
+html[data-bs-theme="dark"] input,
+html[data-bs-theme="dark"] select,
+html[data-bs-theme="dark"] textarea {
+    background: #1e1e1e !important;
+    color: #fff !important;
+    border-color: #444 !important;
+}
+
+html[data-bs-theme="dark"] input::placeholder {
+    color: #aaa !important;
+}
+
+html[data-bs-theme="dark"] .rm-scoreboard {
+    background: linear-gradient(90deg, #0d2340, #0f2b55 60%, #0d2340) !important;
+    color: #ffffff !important;
+}
+
+html[data-bs-theme="dark"] .hero {
+    background:
+        linear-gradient(to bottom, rgba(0, 27, 58, .55), rgba(0, 27, 58, .65)),
+        url('/assets/logo/ball.png') center/cover no-repeat !important;
+    color: #ffffff !important;
+}
+
+html[data-bs-theme="dark"] .hero h1,
+html[data-bs-theme="dark"] .hero p {
+    color: #ffffff !important;
+}
+
+html[data-bs-theme="dark"] .hero {
+    background:
+        linear-gradient(to bottom, rgba(0, 27, 58, .55), rgba(0, 27, 58, .65)),
+        url('/assets/logo/ball.png') center/cover no-repeat !important;
+}
+
+/* ===============================
+   SPONSOR LOGOS — DARK MODE BOOST
+==================================*/
+/* ========================================
+   DARK MODE — Sponsor "⋮" icon rõ hơn
+======================================== */
+html[data-bs-theme="dark"] .sponsor-more {
+    color: #ffffff !important;
+    /* icon màu trắng */
+    opacity: 0.9 !important;
+    /* sáng nhẹ */
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3)) !important;
+    /* viền sáng */
+}
+
+html[data-bs-theme="dark"] .sponsor-more:hover {
+    color: #8ab4ff !important;
+    /* màu xanh Real Madrid nhẹ khi hover */
+}
+
+/* ============================================
+   DARK MODE — Sponsor Card (PHƯƠNG ÁN 3)
+============================================ */
+html[data-bs-theme="dark"] .sponsor-card {
+    background: #1f1f1f !important;
+    /* card tối nhưng không đen tuyệt đối */
+    border: 1px solid #333 !important;
+    /* viền nhẹ để nổi card */
+    border-radius: 14px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    /* shadow mềm */
+}
+
+html[data-bs-theme="dark"] .sponsor-card img {
+    filter: brightness(1.35) contrast(1.1)
+        /* tăng sáng nhẹ */
+        drop-shadow(0 0 3px rgba(255, 255, 255, 0.18));
+    /* viền sáng nhẹ */
+    transition: 0.2s ease;
+}
+
+html[data-bs-theme="dark"] .sponsor-card:hover {
+    background: #262626 !important;
+    /* sáng hơn 1 chút */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+html[data-bs-theme="dark"] .sponsor-card:hover img {
+    filter: brightness(1.55) contrast(1.15) drop-shadow(0 0 5px rgba(255, 255, 255, 0.25));
+}
+
+/* Sponsor card luôn nền sáng khi dark mode */
+html[data-bs-theme="dark"] .sponsor-card {
+    background: #ffffff !important;
+    /* nền trắng */
+    border: 1px solid #333 !important;
+    /* đường viền nhẹ để hoà với dark */
+    color: #000 !important;
+}
+
+/* Logo giữ nguyên */
+html[data-bs-theme="dark"] .sponsor-card img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Tiêu đề “Main Sponsor / Global Sponsor” giữ trắng */
+html[data-bs-theme="dark"] h2,
+html[data-bs-theme="dark"] h3,
+html[data-bs-theme="dark"] h4 {
+    color: #fff !important;
+}
+
+/* ============================================================
+   FIX BOOTSTRAP DROPDOWN KHÔNG MỞ TRONG DARK MODE
+   ============================================================ */
+
+/* Đảm bảo menu thật sự hiện khi Bootstrap thêm .show */
+.dropdown-menu.show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Đảm bảo dropdown không bị ẩn do dark-mode */
+html[data-bs-theme="dark"] .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+
+body.force-open .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute !important;
+    z-index: 999999999 !important;
+}
+
+body.force-open .avatar-btn {
+    z-index: 999999999 !important;
+    pointer-events: auto !important;
+}
+
+body.force-open .dropdown {
+    z-index: 999999998 !important;
+}
+
+body.force-open .modal-backdrop,
+body.force-open .toast-host,
+body.force-open .offcanvas-backdrop {
+    display: none !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+}
+/* ==== FIX CHECKBOX DARK MODE ==== */
+html[data-bs-theme="dark"] input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ffffff !important;
+    /* viền trắng rõ */
+    background-color: transparent !important;
+    border-radius: 4px;
+}
+
+/* Khi được tick */
+html[data-bs-theme="dark"] input[type="checkbox"]:checked {
+    background-color: #ffffff !important;
+    /* ô trắng */
+    border-color: #ffffff !important;
+}
+
+/* màu của dấu check */
+html[data-bs-theme="dark"] input[type="checkbox"]:checked::before {
+    content: "✔";
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    /* dấu check đen để nổi trên nền trắng */
+    transform: translateY(-2px);
+}

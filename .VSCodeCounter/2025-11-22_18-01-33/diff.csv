@@ -1,0 +1,17 @@
+"filename", "language", "JavaScript", "vue", "MS SQL", "comment", "blank", "total"
+"d:\CV\Project-Web-Real-Madrid-V2\backend\sql\database.sql", "MS SQL", 0, 0, 44, 12, 8, 64
+"d:\CV\Project-Web-Real-Madrid-V2\backend\src\app.js", "JavaScript", 4, 0, 0, 1, 4, 9
+"d:\CV\Project-Web-Real-Madrid-V2\backend\src\controllers\playerscontroller.js", "JavaScript", 372, 0, 0, 28, 47, 447
+"d:\CV\Project-Web-Real-Madrid-V2\backend\src\controllers\uploadcontroller.js", "JavaScript", 16, 0, 0, 3, 5, 24
+"d:\CV\Project-Web-Real-Madrid-V2\backend\src\routes\players.js", "JavaScript", 14, 0, 0, 3, 3, 20
+"d:\CV\Project-Web-Real-Madrid-V2\backend\src\routes\upload.js", "JavaScript", 20, 0, 0, 3, 6, 29
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\components\NavBar.vue", "vue", 0, 0, 0, -1, 4, 3
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\pages\Home.vue", "vue", 0, 151, 0, 6, 23, 180
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\pages\admin\AdminDashboard.vue", "vue", 0, 30, 0, 3, 2, 35
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\pages\admin\ManagePlayers.vue", "vue", 0, 688, 0, 11, 78, 777
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\pages\orders\MyOrders.vue", "vue", 0, 4, 0, 2, 3, 9
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\pages\players\PlayerDetail.vue", "vue", 0, 250, 0, 10, 32, 292
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\pages\players\Players.vue", "vue", 0, 255, 0, 12, 36, 303
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\router\index.js", "JavaScript", 17, 0, 0, 1, 0, 18
+"d:\CV\Project-Web-Real-Madrid-V2\frontend\src\services\assets.js", "JavaScript", 23, 0, 0, 6, 7, 36
+"Total", "-", 466, 1378, 44, 100, 258, 2246
