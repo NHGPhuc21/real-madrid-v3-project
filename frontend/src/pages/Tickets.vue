@@ -4,9 +4,10 @@
     <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h2 class="mb-0 fw-bold page-title">Upcoming Matches & Tickets</h2>
-      <button class="btn btn-outline-primary" @click="goMyTickets">
-        My Tickets
-      </button>
+      <button class="my-ticket-btn" @click="goMyTickets">
+  My Tickets
+</button>
+
     </div>
 
     <!-- MONTH FILTER -->
@@ -296,6 +297,17 @@ onMounted(load);
   font-size: 0.9rem;
   transition: 0.2s;
 }
+/* DARK MODE — Month filter */
+:deep(.month-btn) {
+  background: #2a2a2a;        /* nền xám đậm */
+  color: #eaeaea;             /* chữ sáng */
+}
+
+:deep(.month-btn.active) {
+  background: #4169e1;        /* giữ xanh cho active */
+  color: #ffffff;
+}
+
 .month-btn.active {
   background: #4169e1;
   color: white;
@@ -334,6 +346,25 @@ onMounted(load);
   overflow: hidden;
   border: 1px solid #e6e6e6;
 }
+/* ===============================
+   DARK MODE FIX — TICKETS PAGE
+================================ */
+/* ===============================
+   DARK MODE FIX — TICKETS PAGE
+================================ */
+/* DARK MODE FIX — TICKETS PAGE */
+:deep(.ticket-card) {
+  background: #ffffff;
+  color: #111;
+}
+
+:deep(.ticket-card .competition),
+:deep(.ticket-card .match-time),
+:deep(.ticket-card .stadium),
+:deep(.ticket-card .ticket-count) {
+  color: #000000;
+}
+
 
 /* Header */
 .card-top {
@@ -383,4 +414,64 @@ onMounted(load);
 .buy-btn:hover {
   opacity: 0.85;
 }
+/* ===============================
+   MY TICKETS BUTTON (Read Article style)
+================================ */
+/* ===============================
+   MY TICKETS — SEE ALL STYLE
+================================ */
+.my-ticket-btn {
+  padding: 9px 26px;
+  border-radius: 999px;
+  border: none;
+
+  /* Gradient mềm giống "See all" */
+  background: linear-gradient(
+    180deg,
+    #6d7cff 0%,
+    #5a66ff 100%
+  );
+
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+
+  /* Glow nhẹ */
+  box-shadow:
+    0 8px 20px rgba(90, 102, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition: all 0.25s ease;
+}
+
+/* Hover — nổi + sáng hơn */
+.my-ticket-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 26px rgba(90, 102, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Active */
+.my-ticket-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 6px 16px rgba(90, 102, 255, 0.35);
+}
+
+
+/* Hover */
+.my-ticket-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(79, 108, 255, 0.45);
+  opacity: 0.95;
+}
+
+/* Active (click) */
+.my-ticket-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(79, 108, 255, 0.35);
+}
+
 </style>
