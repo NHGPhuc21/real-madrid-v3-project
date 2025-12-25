@@ -130,6 +130,22 @@
           </button>
         </div>
       </div>
+      <!-- Event Management Card -->
+<div class="col-md-3">
+  <div class="card border-0 shadow-sm p-4 text-center">
+    <div class="mb-2 fs-2">🎉</div>
+    <h6 class="mb-1">Events</h6>
+    <p class="text-muted small">Seasonal & club events</p>
+
+    <RouterLink
+      to="/admin/events"
+      class="btn btn-primary btn-sm"
+    >
+      Manage
+    </RouterLink>
+  </div>
+</div>
+
 
     </div>
   </div>

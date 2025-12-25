@@ -1,0 +1,53 @@
+/* ===============================
+   🎄 CHRISTMAS THEME
+================================ */
+
+:root[data-event-theme="christmas"] {
+    --accent-primary: #b30000;
+    /* đỏ Noel */
+    --accent-secondary: #0b6e4f;
+    /* xanh cây thông */
+    --accent-gold: #d4af37;
+
+    --bg-soft: #fff5f5;
+    --border-soft: rgba(179, 0, 0, 0.15);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+[data-event-theme="christmas"] .btn-primary {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+[data-event-theme="christmas"] .btn-outline-primary {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+[data-event-theme="christmas"] .btn-outline-primary:hover {
+    background-color: var(--accent-primary);
+    color: #fff;
+}
+
+/* ===============================
+   CARDS / TABLES
+================================ */
+
+[data-event-theme="christmas"] .card,
+[data-event-theme="christmas"] .table {
+    border-color: var(--border-soft);
+}
+
+/* ===============================
+   SECTION HEADER (OPTIONAL)
+================================ */
+
+[data-event-theme="christmas"] .section-header {
+    background: linear-gradient(90deg,
+            var(--accent-primary),
+            var(--accent-secondary));
+    color: #fff;
+}

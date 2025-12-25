@@ -17,7 +17,7 @@ const highlightsRoutes = require("./routes/highlights");
 const ticketOrdersRoutes = require("./routes/ticketorders");
 const playersRoutes = require("./routes/players");
 const uploadRoutes = require("./routes/upload");
-
+const eventGreetingRoutes = require("./routes/eventGreeting.routes");
 
 // ---------- Swagger UI ----------
 const fs = require("fs");
@@ -74,7 +74,7 @@ app.use(
     swaggerOptions: { persistAuthorization: true },
   })
 );
-
+app.use("/api", eventGreetingRoutes);
 /** 4) Mount ROUTES sau khi đã có CORS/JSON */
 app.use("/api/memberships", require("./routes/memberships"));
 app.use("/api/payments", paymentsRoutes);
@@ -83,6 +83,7 @@ app.use("/api/payments/webhook", express.raw({ type: "*/*", limit: "2mb" }));
 //các chức năng của players
 app.use("/api/players", require("./routes/players"));
 app.use("/api/auth", authRoutes);
+app.use("/api/events", require("./routes/event.routes"));
 
 app.use("/api/users", usersRoutes);
 app.use("/api/my-tickets", require("./routes/mytickets"));

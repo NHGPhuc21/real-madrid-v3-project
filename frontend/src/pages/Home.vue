@@ -10,12 +10,19 @@
     <!-- HERO -->
     <section class="hero text-white">
       <div class="hero-content text-center">
-        <h1 class="display-5 fw-bold mb-3">Welcome to Real Madrid FC</h1>
+        <ChristmasGiftBox @open="showGiftAnimation = true" />
+
+
+
+
+        <div class="hero-welcome">
+          <h1 class="display-5 fw-bold mb-3">Welcome to Real Madrid FC</h1>
         <p class="lead mb-4">The best club in the world</p>
         <p>
           36 La Liga titles, 15 Champion League trophies, and countless other
           honors make us the most successful football club in history
         </p>
+        </div>
       </div>
     </section>
 
@@ -825,6 +832,10 @@ import { getOpponentLogo, getNewsImage } from '@/services/assets'
 import MatchScoreboard from '@/components/MatchScoreboard.vue'
 import PalmaresSummary from '@/pages/palmares/PalmaresSummary.vue'
 import { useRouter } from 'vue-router'
+import ChristmasGiftBox from "@/components/events/christmas/ChristmasGiftBox.vue";
+import { loadActiveEvent } from "@/events/useEvent";
+import ChristmasGiftAnimation from "@/components/events/christmas/ChristmasGiftAnimation.vue";
+
 const router = useRouter()
 let liveInterval = null;
 
@@ -842,6 +853,7 @@ const isAdmin = computed(() => auth.user?.role === 'admin')
 
 const matches = ref([])
 const news = ref([])
+
 
 /* ===== news theo topic ===== */
 const newsClub = ref([])
@@ -1396,6 +1408,7 @@ if (modalEl) {
 watch(matches, () => nextTick(updateArrows), { deep: true })
 
 onMounted(() => {
+  loadActiveEvent();
   loadMatches();
   loadNews();
   loadCurrentMatch().then(() => {
@@ -2140,6 +2153,9 @@ html[data-bs-theme="dark"] .news-card .card {
 html[data-bs-theme="dark"] .news-card .card-title,
 html[data-bs-theme="dark"] .news-card .card-text {
   color: #ddd !important;
+}
+.hero-welcome {
+  margin-top: 70px; /* tạo khoảng trống cho gift box */
 }
 
 </style>

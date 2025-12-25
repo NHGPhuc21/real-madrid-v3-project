@@ -934,6 +934,79 @@ WHERE walletid = 3;
 ALTER TABLE users
 ADD COLUMN premium_start TIMESTAMP NULL;
 
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE events (
+  id SERIAL PRIMARY KEY,
+  key VARCHAR(50) UNIQUE NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  start_date DATE,
+  end_date DATE,
+  enabled BOOLEAN DEFAULT false,
+  config JSONB DEFAULT '{}',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO events (key, name, start_date, end_date, enabled, config)
+VALUES
+(
+  'christmas',
+  'Christmas',
+  '2025-12-24',
+  '2025-12-25',
+  false,
+  '{"snow": true, "banner": true, "theme": "christmas"}'
+),
+(
+  'newyear',
+  'New Year',
+  '2025-12-31',
+  '2026-01-01',
+  false,
+  '{"snow": false, "banner": true, "theme": "default"}'
+);
+
+
+CREATE TABLE event_greetings (
+  id SERIAL PRIMARY KEY,
+
+  event_key VARCHAR(50) NOT NULL,
+
+  message TEXT NOT NULL,
+  weight INT NOT NULL DEFAULT 1,      -- trọng số / tỉ lệ xuất hiện
+  enabled BOOLEAN DEFAULT true,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_event_greetings_event
+    FOREIGN KEY (event_key)
+    REFERENCES events(key)
+    ON DELETE CASCADE
+);
+INSERT INTO event_greetings (event_key, message, weight)
+VALUES
+('christmas', 'Chúc mừng Giáng Sinh 🎄', 50),
+('christmas', 'Merry Christmas – Hala Madrid 🎅', 50);
+
+
+INSERT INTO event_greetings (event_key, message, weight)
+VALUES
+('newyear', 'Chúc mừng năm mới – An khang thịnh vượng 🧧', 60),
+('newyear', 'Xuân mới thắng lợi mới – Hala Madrid ⚽', 40);
+
+
+
+
+
 select * from audit_logs;
 
 SELECT table_name

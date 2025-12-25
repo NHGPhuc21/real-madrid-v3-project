@@ -18,6 +18,7 @@ import { useAuthStore } from "../store/auth";
 import ManageOrders from "../pages/admin/ManageOrders.vue";
 import ManageHighlights from "../pages/admin/ManageHighlights.vue"; // NEW
 import TicketOrderDetail from "@/pages/tickets/TicketOrderDetail.vue";
+import EventsPage from "../pages/admin/EventsPage.vue"; // ⭐ NEW: Events
 
 // ĐÃ có: chi tiết giỏ & đơn
 import CartDetail from "../pages/CartDetail.vue";
@@ -129,6 +130,13 @@ const routes = [
     component: AdminDashboard,
     meta: { requiresAuth: true, admin: true },
   },
+  {
+    path: "/admin/events",
+    name: "AdminEvents",
+    component: EventsPage,
+    meta: { requiresAuth: true, admin: true },
+  },
+
   {
     path: "/admin/users",
     component: ManageUsers,

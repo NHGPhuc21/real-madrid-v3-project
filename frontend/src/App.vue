@@ -5,7 +5,7 @@ import { RouterView } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import ToastHost from '@/components/ToastHost.vue'
-
+import EventProvider from "@/events/EventProvider.vue";
 // =========================================
 // 🔥 1) STATE THEME GLOBAL
 // =========================================
@@ -26,17 +26,21 @@ function toggleTheme() {
 
 
 <template>
+  <EventProvider>
   <!-- Navbar cố định -->
   <NavBar :theme="theme" @toggle-theme="toggleTheme" />
 
   <!-- Nội dung chính -->
   <main class="app-content">
+    
     <RouterView />
+    
     <FooterBar />
   </main>
 
   <!-- Toast notifications -->
   <ToastHost />
+  </EventProvider>
 </template>
 
 <style scoped>
