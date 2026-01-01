@@ -66,12 +66,13 @@
 
             <!-- Greeting Manager -->
             <button
-              v-if="event.key === 'christmas'"
-              class="btn btn-outline-secondary btn-sm"
-              @click="openEdit(event)"
-            >
-              Greeting
-            </button>
+  v-if="event.key === 'christmas' || event.key === 'birthday'"
+  class="btn btn-outline-secondary btn-sm"
+  @click="openEdit(event)"
+>
+  Greeting
+</button>
+
           </td>
         </tr>
       </tbody>
@@ -80,16 +81,26 @@
 
   <!-- 🔥 GREETING LIST MODAL -->
   <GreetingListModal
-    v-if="showGreetingModal"
-    :eventKey="selectedEvent.key"
-    @close="showGreetingModal = false"
-  />
+  v-if="showGreetingModal && selectedEvent?.key === 'christmas'"
+  :eventKey="selectedEvent.key"
+  @close="showGreetingModal = false"
+/>
+
+<BirthdayGreetingListModal
+  v-if="showGreetingModal && selectedEvent?.key === 'birthday'"
+  @close="showGreetingModal = false"
+/>
+
+
+
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import EventStatusBadge from "@/components/admin/EventStatusBadge.vue";
 import GreetingListModal from "@/components/admin/GreetingListModal.vue";
+import BirthdayGreetingListModal
+  from "@/components/admin/BirthdayGreetingListModal.vue";
 
 import {
   enableEvent,
