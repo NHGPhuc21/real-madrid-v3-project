@@ -1003,6 +1003,21 @@ VALUES
 ('newyear', 'Chúc mừng năm mới – An khang thịnh vượng 🧧', 60),
 ('newyear', 'Xuân mới thắng lợi mới – Hala Madrid ⚽', 40);
 
+ALTER TABLE events
+ADD COLUMN music_url TEXT,
+ADD COLUMN music_enabled BOOLEAN DEFAULT false;
+
+INSERT INTO events (key, name, enabled, config)
+VALUES (
+  'birthday',
+  'Birthday',
+  false,
+  '{
+    "popup": true,
+    "theme": "birthday"
+  }'
+)
+ON CONFLICT (key) DO NOTHING;
 
 
 

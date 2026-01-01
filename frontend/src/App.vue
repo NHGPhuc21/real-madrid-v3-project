@@ -6,7 +6,7 @@ import NavBar from '@/components/NavBar.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import ToastHost from '@/components/ToastHost.vue'
 import EventProvider from "@/events/EventProvider.vue";
-// =========================================
+
 // 🔥 1) STATE THEME GLOBAL
 // =========================================
 const theme = ref(localStorage.getItem("theme") || "light")

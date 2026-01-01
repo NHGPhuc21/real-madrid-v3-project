@@ -1,0 +1,10 @@
+"filename", "language", "JavaScript", "vue", "MS SQL", "comment", "blank", "total"
+"d:\CV\Project-Web-Real-Madrid-V3\backend\sql\database.sql", "MS SQL", 0, 0, 3, 0, 1, 4
+"d:\CV\Project-Web-Real-Madrid-V3\backend\src\app.js", "JavaScript", 0, 0, 0, 0, 1, 1
+"d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\eventGreeting.routes.js", "JavaScript", -10, 0, 0, -4, -1, -15
+"d:\CV\Project-Web-Real-Madrid-V3\frontend\src\api\events.api.js", "JavaScript", 7, 0, 0, 0, 0, 7
+"d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasMusic.vue", "vue", 0, 41, 0, 0, 11, 52
+"d:\CV\Project-Web-Real-Madrid-V3\frontend\src\events\EventProvider.vue", "vue", 0, 18, 0, -3, 2, 17
+"d:\CV\Project-Web-Real-Madrid-V3\frontend\src\events\useEvent.js", "JavaScript", -1, 0, 0, -1, 0, -2
+"d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\EventsPage.vue", "vue", 0, 67, 0, 5, 11, 83
+"Total", "-", -4, 126, 3, -3, 25, 147

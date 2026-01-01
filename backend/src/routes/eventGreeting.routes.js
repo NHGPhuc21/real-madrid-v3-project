@@ -3,12 +3,20 @@ const router = express.Router();
 const pool = require("../../config/db");
 
 /**
+ * ⚠️ QUAN TRỌNG:
+ * uploadMulter export object { upload, ... }
+ * → phải destructuring
+ */
+const { upload } = require("../middleware/uploadMulter");
+const { authMiddleware, adminOnly } = require("../middleware/authmiddleware");
+
+/**
  * ==========================================
  * GET ALL GREETINGS OF AN EVENT (ADMIN)
  * ==========================================
- * GET /events/:key/greetings
+ * GET /api/events/:key/greetings
  */
-router.get("/events/:key/greetings", async (req, res) => {
+router.get("/:key/greetings", async (req, res) => {
   const { key } = req.params;
 
   try {
@@ -31,18 +39,61 @@ router.get("/events/:key/greetings", async (req, res) => {
 
 /**
  * ==========================================
+ * 🎄 UPLOAD CHRISTMAS MUSIC (ADMIN)
+ * ==========================================
+ * POST /api/events/admin/christmas/music
+ */
+router.post(
+  "/admin/christmas/music",
+  authMiddleware,
+  adminOnly,
+  upload.single("music"),
+  async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "No music file uploaded" });
+      }
+
+      const musicUrl = `/uploads/events/christmas/${req.file.filename}`;
+
+      await pool.query(
+        `
+        UPDATE events
+        SET
+          music_url = $1,
+          music_enabled = true
+        WHERE key = 'christmas'
+        `,
+        [musicUrl]
+      );
+
+      res.json({
+        message: "Christmas music uploaded successfully",
+        music_url: musicUrl,
+      });
+    } catch (err) {
+      console.error("UPLOAD christmas music error:", err.message);
+      res.status(500).json({ message: "Upload failed" });
+    }
+  }
+);
+
+/**
+ * ==========================================
  * ADD GREETING (ADMIN)
  * ==========================================
- * POST /events/:key/greetings
+ * POST /api/events/:key/greetings
  */
-router.post("/events/:key/greetings", async (req, res) => {
+router.post("/:key/greetings", async (req, res) => {
   const { key } = req.params;
   const { message, weight = 1 } = req.body;
+
   if (weight < 0 || weight > 100) {
-    return res.status(400).json({
-      message: "Weight must be between 0 and 100 (%)",
-    });
+    return res
+      .status(400)
+      .json({ message: "Weight must be between 0 and 100 (%)" });
   }
+
   if (!message || !message.trim()) {
     return res.status(400).json({ message: "Message is required" });
   }
@@ -68,15 +119,16 @@ router.post("/events/:key/greetings", async (req, res) => {
  * ==========================================
  * UPDATE GREETING (ADMIN)
  * ==========================================
- * PUT /greetings/:id
+ * PUT /api/events/greetings/:id
  */
 router.put("/greetings/:id", async (req, res) => {
   const { id } = req.params;
   const { message, weight, enabled } = req.body;
+
   if (weight != null && (weight < 0 || weight > 100)) {
-    return res.status(400).json({
-      message: "Weight must be between 0 and 100 (%)",
-    });
+    return res
+      .status(400)
+      .json({ message: "Weight must be between 0 and 100 (%)" });
   }
 
   try {
@@ -104,7 +156,7 @@ router.put("/greetings/:id", async (req, res) => {
  * ==========================================
  * DELETE GREETING (ADMIN)
  * ==========================================
- * DELETE /greetings/:id
+ * DELETE /api/events/greetings/:id
  */
 router.delete("/greetings/:id", async (req, res) => {
   const { id } = req.params;
@@ -120,11 +172,11 @@ router.delete("/greetings/:id", async (req, res) => {
 
 /**
  * ==========================================
- * RANDOM GREETING BY WEIGHT (USER / ADMIN)
+ * RANDOM GREETING (USER / ADMIN)
  * ==========================================
- * GET /events/:key/random-greeting
+ * GET /api/events/:key/random-greeting
  */
-router.get("/events/:key/random-greeting", async (req, res) => {
+router.get("/:key/random-greeting", async (req, res) => {
   const { key } = req.params;
 
   try {
@@ -137,38 +189,24 @@ router.get("/events/:key/random-greeting", async (req, res) => {
       [key]
     );
 
-    if (!rows.length) {
-      return res.json(null);
-    }
+    if (!rows.length) return res.json(null);
+
     const total = rows.reduce((sum, g) => sum + g.weight, 0);
+    if (total <= 0) return res.json(null);
 
-    if (total <= 0) {
-      return res.json(null);
-    }
-
-    if (total !== 100) {
-      console.warn(
-        `[Greeting] Total percent for event "${key}" = ${total}% (should be 100%)`
-      );
-    }
-    // 🎯 Random theo % tuyệt đối (0–100)
     const r = Math.random() * 100;
     let acc = 0;
 
     for (const g of rows) {
-      acc += g.weight; // weight = %
-      if (r <= acc) {
-        return res.json({ message: g.message });
-      }
+      acc += g.weight;
+      if (r <= acc) return res.json({ message: g.message });
     }
 
-    // fallback (nếu tổng < 100)
     res.json({ message: rows[rows.length - 1].message });
   } catch (err) {
     console.error("RANDOM greeting error:", err.message);
     res.status(500).json({ message: "Failed to random greeting" });
   }
 });
-
 
 module.exports = router;

@@ -331,11 +331,10 @@ html[data-bs-theme="dark"] input[type="checkbox"] {
     width: 18px;
     height: 18px;
     border: 2px solid #ffffff !important;
-    /* viền trắng rõ */
+    
     background-color: transparent !important;
     border-radius: 4px;
 }
-
 /* Khi được tick */
 html[data-bs-theme="dark"] input[type="checkbox"]:checked {
     background-color: #ffffff !important;
@@ -343,13 +342,13 @@ html[data-bs-theme="dark"] input[type="checkbox"]:checked {
     border-color: #ffffff !important;
 }
 
-/* màu của dấu check */
+
 html[data-bs-theme="dark"] input[type="checkbox"]:checked::before {
     content: "✔";
     display: block;
     text-align: center;
     font-size: 14px;
     color: #000;
-    /* dấu check đen để nổi trên nền trắng */
+    
     transform: translateY(-2px);
 }

@@ -13,6 +13,13 @@ export function getActiveEvent() {
 export function enableEvent(key, payload = {}) {
   return api.put(`/events/${key}/enable`, payload);
 }
+export function uploadChristmasMusic(formData) {
+  return api.post("/events/admin/christmas/music", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+}
 
 
 /**

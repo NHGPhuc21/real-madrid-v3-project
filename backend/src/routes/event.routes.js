@@ -3,15 +3,45 @@ const router = express.Router();
 const pool = require("../../config/db");
 
 /**
- * GET active event
+ * ==========================================
+ * GET ACTIVE EVENT
  * Trả về event đang enabled (hoặc null)
+ * MỞ RỘNG: trả thêm music_enabled + music_url
+ * ==========================================
+ * GET /api/events/active
  */
 router.get("/active", async (req, res) => {
   try {
     const { rows } = await pool.query(
-      "SELECT * FROM events WHERE enabled = true LIMIT 1"
+      `
+      SELECT
+        id,
+        key,
+        enabled,
+        config,
+        music_enabled,
+        music_url
+      FROM events
+      WHERE enabled = true
+      LIMIT 1
+      `
     );
-    res.json(rows[0] || null);
+
+    if (!rows.length) {
+      return res.json(null);
+    }
+
+    const event = rows[0];
+
+    res.json({
+      key: event.key,
+      enabled: event.enabled,
+      config: event.config || {},
+
+      // 🎵 Christmas music (frontend sẽ tự dùng khi key === "christmas")
+      music_enabled: event.music_enabled || false,
+      music_url: event.music_url || null,
+    });
   } catch (err) {
     console.error("GET /events/active error:", err.message);
     res.status(500).json({ message: "Failed to load active event" });
@@ -19,10 +49,13 @@ router.get("/active", async (req, res) => {
 });
 
 /**
- * ENABLE one event (admin)
+ * ==========================================
+ * ENABLE ONE EVENT (ADMIN)
  * - Disable tất cả
  * - Enable event theo key
  * - Với christmas: nhận greeting từ body và lưu vào config
+ * ==========================================
+ * PUT /api/events/:key/enable
  */
 router.put("/:key/enable", async (req, res) => {
   const { key } = req.params;
@@ -68,7 +101,10 @@ router.put("/:key/enable", async (req, res) => {
 });
 
 /**
- * DISABLE all events (admin)
+ * ==========================================
+ * DISABLE ALL EVENTS (ADMIN)
+ * ==========================================
+ * PUT /api/events/disable
  */
 router.put("/disable", async (req, res) => {
   try {

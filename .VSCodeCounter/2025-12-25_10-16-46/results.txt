@@ -1,0 +1,230 @@
+Date : 2025-12-25 10:16:46
+Directory : d:\CV\Project-Web-Real-Madrid-V3
+Total : 151 files,  28260 codes, 1174 comments, 3106 blanks, all 32540 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| vue                |         62 |     11,720 |        255 |      1,802 |     13,777 |
+| JSON               |          8 |      8,851 |          0 |         45 |      8,896 |
+| JavaScript         |         75 |      6,674 |        726 |        981 |      8,381 |
+| MS SQL             |          1 |        719 |        118 |        185 |      1,022 |
+| PostCSS            |          2 |        257 |         75 |         76 |        408 |
+| Markdown           |          1 |         18 |          0 |         12 |         30 |
+| HTML               |          1 |         13 |          0 |          4 |         17 |
+| JSON with Comments |          1 |          8 |          0 |          1 |          9 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |        151 |     28,260 |      1,174 |      3,106 |     32,540 |
+| . (Files)                                                                                            |          2 |      1,708 |          0 |          2 |      1,710 |
+| backend                                                                                              |         62 |     10,222 |        723 |      1,085 |     12,030 |
+| backend (Files)                                                                                      |          4 |      2,381 |          8 |          6 |      2,395 |
+| backend\config                                                                                       |          1 |         15 |          1 |          4 |         20 |
+| backend\docs                                                                                         |          1 |      1,175 |          0 |         35 |      1,210 |
+| backend\scripts                                                                                      |          1 |         12 |          8 |          5 |         25 |
+| backend\sql                                                                                          |          1 |        719 |        118 |        185 |      1,022 |
+| backend\src                                                                                          |         54 |      5,920 |        588 |        850 |      7,358 |
+| backend\src (Files)                                                                                  |          1 |         95 |         12 |         18 |        125 |
+| backend\src\controllers                                                                              |         15 |      3,173 |        257 |        404 |      3,834 |
+| backend\src\jobs                                                                                     |          1 |         36 |          4 |          4 |         44 |
+| backend\src\lib                                                                                      |          1 |         53 |          1 |          7 |         61 |
+| backend\src\middleware                                                                               |          2 |         69 |          3 |         11 |         83 |
+| backend\src\routes                                                                                   |         28 |      1,168 |        159 |        211 |      1,538 |
+| backend\src\services                                                                                 |          4 |      1,270 |        144 |        187 |      1,601 |
+| backend\src\utils                                                                                    |          2 |         56 |          8 |          8 |         72 |
+| frontend                                                                                             |         87 |     16,330 |        451 |      2,019 |     18,800 |
+| frontend (Files)                                                                                     |          6 |      3,579 |          2 |         22 |      3,603 |
+| frontend\src                                                                                         |         81 |     12,751 |        449 |      1,997 |     15,197 |
+| frontend\src (Files)                                                                                 |          2 |         79 |          5 |         23 |        107 |
+| frontend\src\api                                                                                     |          3 |         32 |         11 |         14 |         57 |
+| frontend\src\assets                                                                                  |          1 |         88 |          0 |          4 |         92 |
+| frontend\src\assets\data                                                                             |          1 |         88 |          0 |          4 |         92 |
+| frontend\src\components                                                                              |         19 |      1,843 |         47 |        345 |      2,235 |
+| frontend\src\components (Files)                                                                      |          8 |        879 |         25 |        168 |      1,072 |
+| frontend\src\components\admin                                                                        |          4 |        272 |         15 |         52 |        339 |
+| frontend\src\components\events                                                                       |          7 |        692 |          7 |        125 |        824 |
+| frontend\src\components\events\christmas                                                             |          7 |        692 |          7 |        125 |        824 |
+| frontend\src\composables                                                                             |          1 |         13 |          1 |          3 |         17 |
+| frontend\src\events                                                                                  |          4 |        119 |         30 |         28 |        177 |
+| frontend\src\pages                                                                                   |         41 |      9,751 |        199 |      1,426 |     11,376 |
+| frontend\src\pages (Files)                                                                           |         11 |      3,943 |         89 |        621 |      4,653 |
+| frontend\src\pages\admin                                                                             |         15 |      3,388 |         60 |        422 |      3,870 |
+| frontend\src\pages\admin (Files)                                                                     |         13 |      3,282 |         60 |        412 |      3,754 |
+| frontend\src\pages\admin\wallet                                                                      |          2 |        106 |          0 |         10 |        116 |
+| frontend\src\pages\highlights                                                                        |          2 |        216 |          5 |         32 |        253 |
+| frontend\src\pages\orders                                                                            |          2 |        520 |          6 |         76 |        602 |
+| frontend\src\pages\palmares                                                                          |          3 |        223 |          5 |         44 |        272 |
+| frontend\src\pages\partners                                                                          |          1 |        167 |          4 |         16 |        187 |
+| frontend\src\pages\pay                                                                               |          1 |         55 |          1 |         11 |         67 |
+| frontend\src\pages\players                                                                           |          2 |        592 |         21 |         85 |        698 |
+| frontend\src\pages\tickets                                                                           |          1 |        164 |          1 |         28 |        193 |
+| frontend\src\pages\user                                                                              |          3 |        483 |          7 |         91 |        581 |
+| frontend\src\router                                                                                  |          1 |        216 |         19 |         18 |        253 |
+| frontend\src\services                                                                                |          3 |        173 |         46 |         41 |        260 |
+| frontend\src\store                                                                                   |          3 |        176 |         14 |         18 |        208 |
+| frontend\src\styles                                                                                  |          2 |        257 |         75 |         76 |        408 |
+| frontend\src\utils                                                                                   |          1 |          4 |          2 |          1 |          7 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                             | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\CV\Project-Web-Real-Madrid-V3\backend\config\db.js                                                | JavaScript         |         15 |          1 |          4 |         20 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\docs\openapiSpec.json                                       | JSON               |      1,175 |          0 |         35 |      1,210 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\ecosystem.config.js                                         | JavaScript         |         19 |          7 |          3 |         29 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\package-lock.json                                           | JSON               |      2,324 |          0 |          1 |      2,325 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\package.json                                                | JSON               |         32 |          0 |          1 |         33 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\scripts\reconcile.cron.js                                   | JavaScript         |         12 |          8 |          5 |         25 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\server.js                                                   | JavaScript         |          6 |          1 |          1 |          8 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\sql\database.sql                                            | MS SQL             |        719 |        118 |        185 |      1,022 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\app.js                                                  | JavaScript         |         95 |         12 |         18 |        125 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\authcontroller.js                           | JavaScript         |         69 |         20 |          5 |         94 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\cartcontroller.js                           | JavaScript         |        152 |         11 |         18 |        181 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\highlightscontroller.js                     | JavaScript         |        317 |         16 |         48 |        381 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\matchescontroller.js                        | JavaScript         |        245 |         13 |         24 |        282 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\membershipscontroller.js                    | JavaScript         |         42 |          5 |          6 |         53 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\myticketscontroller.js                      | JavaScript         |         23 |          1 |          2 |         26 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\newscontroller.js                           | JavaScript         |        136 |         66 |         21 |        223 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\orderscontroller.js                         | JavaScript         |        581 |         37 |         80 |        698 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\paymentscontroller.js                       | JavaScript         |        334 |         19 |         35 |        388 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\playerscontroller.js                        | JavaScript         |        428 |          5 |         59 |        492 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\productscontroller.js                       | JavaScript         |        167 |          5 |         17 |        189 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\ticketorderscontroller.js                   | JavaScript         |        323 |         34 |         34 |        391 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\ticketscontroller.js                        | JavaScript         |        155 |          2 |         18 |        175 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\uploadcontroller.js                         | JavaScript         |         16 |          3 |          5 |         24 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\controllers\userscontroller.js                          | JavaScript         |        185 |         20 |         32 |        237 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\jobs\housekeeping.js                                    | JavaScript         |         36 |          4 |          4 |         44 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\lib\mailer.js                                           | JavaScript         |         53 |          1 |          7 |         61 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\middleware\authmiddleware.js                            | JavaScript         |         21 |          1 |          4 |         26 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\middleware\uploadMulter.js                              | JavaScript         |         48 |          2 |          7 |         57 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\admin.cashback.js                                | JavaScript         |         83 |          5 |          6 |         94 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\admin.reconcile.js                               | JavaScript         |         23 |          1 |          5 |         29 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\admin.refund.js                                  | JavaScript         |         41 |          2 |          5 |         48 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\admin.wallet.js                                  | JavaScript         |        108 |          6 |         15 |        129 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\auth.js                                          | JavaScript         |          6 |          4 |          4 |         14 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\cart.js                                          | JavaScript         |          9 |          2 |          3 |         14 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\event.routes.js                                  | JavaScript         |         61 |         14 |          9 |         84 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\eventGreeting.routes.js                          | JavaScript         |        122 |         32 |         21 |        175 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\highlights.js                                    | JavaScript         |         22 |          3 |          5 |         30 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\matches.js                                       | JavaScript         |         17 |          4 |          4 |         25 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\memberships.js                                   | JavaScript         |          8 |          3 |          6 |         17 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\misc.js                                          | JavaScript         |         24 |          0 |          4 |         28 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\mytickets.js                                     | JavaScript         |          6 |          0 |          3 |          9 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\news.js                                          | JavaScript         |         12 |          3 |          6 |         21 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\notifications.js                                 | JavaScript         |         32 |          4 |          6 |         42 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\orders.admin.js                                  | JavaScript         |        104 |          5 |         15 |        124 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\orders.js                                        | JavaScript         |         19 |          7 |          6 |         32 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\payments.js                                      | JavaScript         |          9 |          4 |          4 |         17 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\players.js                                       | JavaScript         |         21 |          4 |          6 |         31 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\products.js                                      | JavaScript         |         16 |          5 |          6 |         27 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\ticketorders.js                                  | JavaScript         |          9 |          3 |          4 |         16 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\tickets.js                                       | JavaScript         |         21 |          3 |          8 |         32 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\upload.js                                        | JavaScript         |         50 |          9 |         10 |         69 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\users.js                                         | JavaScript         |         19 |          3 |          4 |         26 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\users.profile.js                                 | JavaScript         |         45 |          4 |          7 |         56 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\wallet.admin.js                                  | JavaScript         |         75 |         11 |         15 |        101 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\wallet.freeze.js                                 | JavaScript         |         54 |          8 |         11 |         73 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\routes\wallet.js                                        | JavaScript         |        152 |         10 |         13 |        175 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\services\membership.js                                  | JavaScript         |        152 |         21 |         27 |        200 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\services\payments.js                                    | JavaScript         |         64 |          9 |          9 |         82 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\services\ticket.js                                      | JavaScript         |         21 |          1 |          4 |         26 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\services\wallet.js                                      | JavaScript         |      1,033 |        113 |        147 |      1,293 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\utils\ffmpeg.js                                         | JavaScript         |         56 |          8 |          7 |         71 |
+| d:\CV\Project-Web-Real-Madrid-V3\backend\src\utils\validators.js                                     | JavaScript         |          0 |          0 |          1 |          1 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\README.md                                                  | Markdown           |         18 |          0 |         12 |         30 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\index.html                                                 | HTML               |         13 |          0 |          4 |         17 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\jsconfig.json                                              | JSON with Comments |          8 |          0 |          1 |          9 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\package-lock.json                                          | JSON               |      3,493 |          0 |          1 |      3,494 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\package.json                                               | JSON               |         31 |          0 |          1 |         32 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\App.vue                                                | vue                |         62 |          4 |         18 |         84 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\api\api.js                                             | JavaScript         |          6 |          0 |          3 |          9 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\api\eventGreetings.api.js                              | JavaScript         |         16 |          2 |          6 |         24 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\api\events.api.js                                      | JavaScript         |         10 |          9 |          5 |         24 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\assets\data\palmares.json                              | JSON               |         88 |          0 |          4 |         92 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\FooterBar.vue                               | vue                |        104 |          6 |         18 |        128 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\HlsPlayer.vue                               | vue                |         59 |          0 |          9 |         68 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\MatchScoreboard.vue                         | vue                |        139 |          5 |         30 |        174 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\MembershipCard.vue                          | vue                |        141 |          4 |         24 |        169 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\NavBar.vue                                  | vue                |        256 |          7 |         63 |        326 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\NotificationBell.vue                        | vue                |         47 |          1 |          6 |         54 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\SponsorsSection.vue                         | vue                |         59 |          2 |          6 |         67 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\ToastHost.vue                               | vue                |         74 |          0 |         12 |         86 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\admin\AddGreetingModal.vue                  | vue                |         38 |          0 |          8 |         46 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\admin\EventEditModal.vue                    | vue                |         72 |          6 |         20 |         98 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\admin\EventStatusBadge.vue                  | vue                |         13 |          0 |          2 |         15 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\admin\GreetingListModal.vue                 | vue                |        149 |          9 |         22 |        180 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasBanner.vue        | vue                |         67 |          0 |         10 |         77 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasGiftAnimation.vue | vue                |        250 |          3 |         49 |        302 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasGiftBox.vue       | vue                |         63 |          2 |         15 |         80 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasGreetingModal.vue | vue                |        147 |          0 |         22 |        169 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasLights.vue        | vue                |         69 |          0 |         13 |         82 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\ChristmasSides.vue         | vue                |         49 |          2 |          8 |         59 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\components\events\christmas\SnowEffect.vue             | vue                |         47 |          0 |          8 |         55 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\composables\useToast.js                                | JavaScript         |         13 |          1 |          3 |         17 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\events\EventProvider.vue                               | vue                |         64 |          5 |         13 |         82 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\events\index.js                                        | JavaScript         |          0 |          0 |          1 |          1 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\events\useEvent.js                                     | JavaScript         |         28 |          9 |          7 |         44 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\events\useGreeting.js                                  | JavaScript         |         27 |         16 |          7 |         50 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\main.js                                                | JavaScript         |         17 |          1 |          5 |         23 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\CartDetail.vue                                   | vue                |        138 |          2 |         16 |        156 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\Home.vue                                         | vue                |      1,822 |         46 |        294 |      2,162 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\Login.vue                                        | vue                |        108 |          3 |         11 |        122 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\Matches.vue                                      | vue                |        197 |          6 |         45 |        248 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\MyTickets.vue                                    | vue                |        111 |          2 |         11 |        124 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\News.vue                                         | vue                |        147 |          4 |         18 |        169 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\NewsDetail.vue                                   | vue                |         64 |          1 |         15 |         80 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\Register.vue                                     | vue                |         94 |          1 |         11 |        106 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\Shop.vue                                         | vue                |        775 |         15 |        111 |        901 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\Tickets.vue                                      | vue                |        392 |          8 |         78 |        478 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\WalletBalance.vue                                | vue                |         95 |          1 |         11 |        107 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\AdminDashboard.vue                         | vue                |        228 |         13 |         30 |        271 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\EventsPage.vue                             | vue                |        120 |          2 |         19 |        141 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\HighlightsUpload.vue                       | vue                |        139 |          1 |         22 |        162 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageHighlights.vue                       | vue                |        200 |          4 |         14 |        218 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageMatches.vue                          | vue                |        315 |          5 |         61 |        381 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageNews.vue                             | vue                |        248 |          5 |         33 |        286 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageOrders.vue                           | vue                |        237 |          2 |         22 |        261 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManagePlayers.vue                          | vue                |        940 |         13 |        101 |      1,054 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageProducts.vue                         | vue                |        209 |          3 |         23 |        235 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageTickets.vue                          | vue                |        217 |          2 |         25 |        244 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\ManageUsers.vue                            | vue                |        112 |          1 |         16 |        129 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\MatchForm.vue                              | vue                |        228 |          9 |         26 |        263 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\WalletAdmin.vue                            | vue                |         89 |          0 |         20 |        109 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\wallet\AdminCashback.vue                   | vue                |         39 |          0 |          3 |         42 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\admin\wallet\AdminWithdrawals.vue                | vue                |         67 |          0 |          7 |         74 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\highlights\HighlightDetail.vue                   | vue                |        121 |          5 |         18 |        144 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\highlights\HighlightsList.vue                    | vue                |         95 |          0 |         14 |        109 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\orders\MyOrders.vue                              | vue                |        193 |          2 |         18 |        213 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\orders\OrderDetail.vue                           | vue                |        327 |          4 |         58 |        389 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\palmares\Palmares.vue                            | vue                |         31 |          0 |         10 |         41 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\palmares\PalmaresList.vue                        | vue                |         92 |          4 |         17 |        113 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\palmares\PalmaresSummary.vue                     | vue                |        100 |          1 |         17 |        118 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\partners\Sponsors.vue                            | vue                |        167 |          4 |         16 |        187 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\pay\ProviderSandbox.vue                          | vue                |         55 |          1 |         11 |         67 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\players\PlayerDetail.vue                         | vue                |        304 |          9 |         42 |        355 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\players\Players.vue                              | vue                |        288 |         12 |         43 |        343 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\tickets\TicketOrderDetail.vue                    | vue                |        164 |          1 |         28 |        193 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\user\EditProfile.vue                             | vue                |        120 |          1 |         25 |        146 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\user\Membership.vue                              | vue                |         79 |          0 |         20 |         99 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\pages\user\Profile.vue                                 | vue                |        284 |          6 |         46 |        336 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\router\index.js                                        | JavaScript         |        216 |         19 |         18 |        253 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\services\api.js                                        | JavaScript         |         59 |         19 |         15 |         93 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\services\assets.js                                     | JavaScript         |         95 |         17 |         20 |        132 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\services\highlights.js                                 | JavaScript         |         19 |         10 |          6 |         35 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\store\auth.js                                          | JavaScript         |         60 |         10 |         14 |         84 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\store\cart.js                                          | JavaScript         |         70 |          3 |          2 |         75 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\store\orders.js                                        | JavaScript         |         46 |          1 |          2 |         49 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\styles\christmas.css                                   | PostCSS            |         29 |         14 |         10 |         53 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\styles\dark-mode.css                                   | PostCSS            |        228 |         61 |         66 |        355 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\src\utils\money.js                                         | JavaScript         |          4 |          2 |          1 |          7 |
+| d:\CV\Project-Web-Real-Madrid-V3\frontend\vite.config.js                                             | JavaScript         |         16 |          2 |          3 |         21 |
+| d:\CV\Project-Web-Real-Madrid-V3\package-lock.json                                                   | JSON               |      1,685 |          0 |          1 |      1,686 |
+| d:\CV\Project-Web-Real-Madrid-V3\package.json                                                        | JSON               |         23 |          0 |          1 |         24 |
+| Total                                                                                                |                    |     28,260 |      1,174 |      3,106 |     32,540 |
++------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

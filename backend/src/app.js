@@ -74,7 +74,10 @@ app.use(
     swaggerOptions: { persistAuthorization: true },
   })
 );
-app.use("/api", eventGreetingRoutes);
+app.use("/uploads", express.static("uploads"));
+
+app.use("/api/events", eventGreetingRoutes);
+
 /** 4) Mount ROUTES sau khi đã có CORS/JSON */
 app.use("/api/memberships", require("./routes/memberships"));
 app.use("/api/payments", paymentsRoutes);

@@ -12,13 +12,13 @@ async function ensureSchema() {
       UnitPrice NUMERIC(10,2) NOT NULL,
       CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      UNIQUE(CartID, ProductID),
+      UNIQUE(CartID, ProductID), 
       FOREIGN KEY (CartID) REFERENCES ShoppingCart(CartID) ON DELETE CASCADE,
       FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
     )
   `);
 }
-ensureSchema().catch(console.error);
+ensureSchema().catch(console.error);//run this function  when backend start
 
 // Lấy CartID theo UserID
 async function getCartIdByUser(userId) {
